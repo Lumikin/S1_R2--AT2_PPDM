@@ -27,6 +27,8 @@ export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
       <View style={styles.container}>
+        <Text style={{fontSize: 20}}> Cadastro de usuário </Text>
+
         <Text>Nome</Text>
         <TextInput
           placeholder="nome"
@@ -53,8 +55,10 @@ export default function App() {
           keyboardType="number-pad"
           style={styles.textInput}
         ></TextInput>
-        <Pressable onPress={realizarLogin}> <Text style={styles.textoBotao}> Salvar </Text>
- </Pressable>
+        <Pressable onPress={realizarLogin}>
+          {" "}
+          <Text style={styles.textoBotao}> Salvar </Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     elevation: 8,
     paddingTop: 10,
-    gap: 4
+    gap: 4,
   },
   textInput: {
     backgroundColor: "#fff",
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 17,
   },
-  textoBotao:{
+  textoBotao: {
     backgroundColor: "#fff",
     borderRadius: 6,
   },
