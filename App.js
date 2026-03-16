@@ -5,6 +5,8 @@ import {
   Pressable,
   Alert,
   TextInput,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -23,40 +25,45 @@ export default function App() {
 
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
-      <View style={styles.container}>
-        <Text style={{fontSize: 20}}> Cadastro de usuário </Text>
+      <KeyboardAvoidingView
+        style={styles.safeArea}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        KeyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
+      >
+        <View style={styles.container}>
+          <Text style={{ fontSize: 20 }}> Cadastro de usuário </Text>
 
-        <Text>Nome</Text>
-        <TextInput
-          placeholder="nome"
-          onChangeText={setnome}
-          style={styles.textInput}
-        ></TextInput>
-        <Text>Email</Text>
-        <TextInput
-          placeholder="Email"
-          onChangeText={setEmail}
-          style={styles.textInput}
-        ></TextInput>
-        <Text>Telefone</Text>
-        <TextInput
-          placeholder="Telefone"
-          onChangeText={setTelefone}
-          keyboardType="number-pad"
-          style={styles.textInput}
-        ></TextInput>
-        <Text>Data de nascimento</Text>
-        <TextInput
-          onChangeText={setData}
-          placeholder="Data de nascimento"
-          keyboardType="number-pad"
-          style={styles.textInput}
-        ></TextInput>
-        <Pressable onPress={realizarLogin}>
-          {" "}
-          <Text style={styles.textoBotao}> Salvar </Text>
-        </Pressable>
-      </View>
+          <Text>Nome</Text>
+          <TextInput
+            placeholder="nome"
+            onChangeText={setnome}
+            style={styles.textInput}
+          ></TextInput>
+          <Text>Email</Text>
+          <TextInput
+            placeholder="Email"
+            onChangeText={setEmail}
+            style={styles.textInput}
+          ></TextInput>
+          <Text>Telefone</Text>
+          <TextInput
+            placeholder="Telefone"
+            onChangeText={setTelefone}
+            keyboardType="number-pad"
+            style={styles.textInput}
+          ></TextInput>
+          <Text>Data de nascimento</Text>
+          <TextInput
+            onChangeText={setData}
+            placeholder="Data de nascimento"
+            keyboardType="number-pad"
+            style={styles.textInput}
+          ></TextInput>
+          <Pressable onPress={realizarLogin}>
+            <Text style={styles.textoBotao}> Salvar </Text>
+          </Pressable>
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -73,6 +80,11 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     gap: 4,
   },
+  safeArea: {
+    width: "90%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   textInput: {
     backgroundColor: "#fff",
     width: "95%",
@@ -82,5 +94,6 @@ const styles = StyleSheet.create({
   textoBotao: {
     backgroundColor: "#fff",
     borderRadius: 6,
+    width: "95%",
   },
 });
