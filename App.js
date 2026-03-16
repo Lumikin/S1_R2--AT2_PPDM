@@ -24,7 +24,7 @@ export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 20 }}> Cadastro de usuário </Text>
+        <Text style={{fontSize: 20}}> Cadastro de usuário </Text>
 
         <Text>Nome</Text>
         <TextInput
